@@ -1,0 +1,17 @@
+import cv2 as cv
+import numpy as np
+import glob
+import os
+
+os.mkdir('F:/opencv folder/Images/resized_images')
+image_input=glob.glob('F:/opencv folder/Images/*.jpg')
+
+i=0
+for image in image_input:
+     img=cv.imread(image)
+     imgresized=cv.resize(img,(150,150))
+     cv.imshow('Resized Images',imgresized)
+     cv.imwrite("F:/opencv folder/Images/resized_images/image%02i.jpg"%i,imgresized)
+     i+=1
+     cv.waitKey(0)  #cv.waitKey(500) can also be used
+     cv.destroyAllWindows()
